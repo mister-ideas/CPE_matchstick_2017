@@ -10,6 +10,7 @@
 int main(int ac, char **av)
 {
 	int lines;
+	int chars;
 	int matches;
 
 	if (ac != 3) {
@@ -17,6 +18,11 @@ int main(int ac, char **av)
 		return (84);
 	}
 	lines = my_getnbr(av[1]);
+	if (lines < 1)
+		return (84);
+	chars = lines * 2 + 2;
 	matches = my_getnbr(av[2]);
+	if (matches > chars - 2)
+		return (84);
 	return (0);
 }

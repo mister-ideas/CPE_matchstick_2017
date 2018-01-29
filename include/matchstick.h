@@ -8,8 +8,10 @@
 #ifndef MATCHSTICK_H_
 #define MATCHSTICK_H_
 
-#include "my.h"
 #include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "my.h"
 
 /* matchstick.c */
 
