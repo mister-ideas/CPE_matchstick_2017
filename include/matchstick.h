@@ -9,6 +9,7 @@
 #define MATCHSTICK_H_
 
 #include "my.h"
+#include <unistd.h>
 
 /* matchstick.c */
 
