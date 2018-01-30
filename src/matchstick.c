@@ -11,6 +11,7 @@ void display_map(int lines, int chars)
 {
 	int map[lines];
 	int j = 0;
+	int k = 0;
 
 	lines += 2;
 	for (int i = 0; i < lines; i++) {
@@ -26,11 +27,17 @@ void display_map(int lines, int chars)
 			my_putchar('\n');
 		} else {
 			my_putchar('*');
-			for (int i = 0; i < (chars - 2) / 2 - j; i++)
+			for (int i = 0; i < (chars - 2) / 2 - j; i++) {
 				my_putchar(' ');
-			for (int k = 0; k < map[i]; k++)
+				k++;
+			}
+			for (int j = 0; j < map[i]; j++)
 				my_putchar('|');
+			for (int j = 0; j < chars - k - map[i] - 2; j++)
+				my_putchar(' ');
+			my_putchar('*');
 			my_putchar('\n');
+			k = 0;
 			j++;
 		}
 	}
