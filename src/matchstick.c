@@ -50,7 +50,7 @@ int main(int ac, char **av)
 	int chars;
 
 	if (ac != 3) {
-		write(2, "Usage: ./matchstick <lines> <matches_per_turn>\n", 47);
+		write(2, "Usage: ./matchstick <lines> <matches>\n", 38);
 		return (84);
 	}
 	lines = my_getnbr(av[1]);
