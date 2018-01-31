@@ -31,19 +31,10 @@ void display_matches_line(int *map, int chars, int i, int j)
 	my_putchar('\n');
 }
 
-void display_map(int lines, int chars, int line, int matches)
+void display_map(int *map, int lines, int chars)
 {
-	int map[lines];
 	int j = 0;
 
-	lines += 2;
-	for (int i = 0; i < lines; i++) {
-		if (i == 0 || i == lines - 1)
-			map[i] = -1;
-		else
-			map[i] = 2 * i - 1;
-	}
-	map[line] -= matches;
 	for (int i = 0; i < lines; i++) {
 		if (map[i] == -1)
 			display_stars_line(chars);

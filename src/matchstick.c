@@ -20,7 +20,7 @@ int read_input(char *input)
 	return (my_getnbr(temp));
 }
 
-void player_turn(int lines, int chars, int max_matches)
+void player_turn(int *map, int lines, int chars, int max_matches)
 {
 	int line;
 	int matches;
@@ -43,22 +43,26 @@ void player_turn(int lines, int chars, int max_matches)
 		nb = read_input("Matches: ");
 		if (nb != -1) {
 			matches = nb;
-			if (matches >= max_matches && matches <= max_matches)
-				status = 2;
-			else {
+			if (matches > max_matches) {
 				my_putstr("Error: you cannot remove more than ");
 				my_put_nbr(max_matches);
 				my_putstr(" matches per turn\n");
-			}	
+			} else if (matches > map[line])
+				my_putstr("Error: not enough matches on this line\n");
+			else if (matches == 0)
+				my_putstr("Error: you have to remove at least one match\n");
+			else
+				status = 2;
 		} else
 			my_putstr("Error: invalid input (positive number expected)\n");
 	}
+	map[line] -= matches;
 	my_putstr("Player removed ");
 	my_put_nbr(matches);
 	my_putstr(" match(es) from line ");
 	my_put_nbr(line);
 	my_putchar('\n');
-	display_map(lines, chars, line, matches);
+	display_map(map, lines, chars);
 }
 
 int main(int ac, char **av)
@@ -74,11 +78,20 @@ int main(int ac, char **av)
 	lines = my_getnbr(av[1]);
 	if (lines < 1 || lines > 99)
 		return (84);
+	int map[lines];
 	max_matches = my_getnbr(av[2]);
 	chars = lines * 2 + 1;
 	if (max_matches < 1 || max_matches > chars - 2)
 		return (84);
-	display_map(lines, chars, 0, 0);
-	player_turn(lines, chars, max_matches);
+	lines += 2;
+	for (int i = 0; i < lines; i++) {
+		if (i == 0 || i == lines - 1)
+			map[i] = -1;
+		else
+			map[i] = 2 * i - 1;
+	}
+	display_map(map, lines, chars);
+	while (1)
+		player_turn(map, lines, chars, max_matches);
 	return (0);
 }
