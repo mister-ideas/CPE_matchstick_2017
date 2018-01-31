@@ -67,6 +67,7 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 
 int main(int ac, char **av)
 {
+	int *map;
 	int lines;
 	int max_matches;
 	int chars;
@@ -78,7 +79,7 @@ int main(int ac, char **av)
 	lines = my_getnbr(av[1]);
 	if (lines < 1 || lines > 99)
 		return (84);
-	int map[lines];
+	map = malloc(sizeof(int) * lines);
 	max_matches = my_getnbr(av[2]);
 	chars = lines * 2 + 1;
 	if (max_matches < 1 || max_matches > chars - 2)
@@ -91,7 +92,7 @@ int main(int ac, char **av)
 			map[i] = 2 * i - 1;
 	}
 	display_map(map, lines, chars);
-	while (1)
-		player_turn(map, lines, chars, max_matches);
+	player_turn(map, lines, chars, max_matches);
+	free(map);
 	return (0);
 }
