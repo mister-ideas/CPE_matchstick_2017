@@ -49,7 +49,7 @@ int check_matches(int status, int *map, int line, int matches, int max_matches)
 		my_putstr(INVALID_INPUT);
 	return (status);
 }
-		   
+
 void player_turn(int *map, int lines, int chars, int max_matches)
 {
 	int line;
