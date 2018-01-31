@@ -38,7 +38,7 @@ int check_matches(int status, int *map, int line, int matches, int max_matches)
 	return (status);
 }
 
-void finished_turn(int line, int matches)
+void finished_player_turn(int line, int matches)
 {
 	my_putstr("Player removed ");
 	my_put_nbr(matches);
