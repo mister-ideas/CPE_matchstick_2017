@@ -67,6 +67,6 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 		}
 	}
 	map[line] -= matches;
-	finished_turn(line, matches);
+	finished_player_turn(line, matches);
 	display_map(map, lines, chars);
 }
