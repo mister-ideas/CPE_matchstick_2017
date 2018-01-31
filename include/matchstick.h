@@ -20,10 +20,20 @@
 
 /* matchstick.c */
 
+int read_input(char *input);
+int game_loop(char **av);
+
 /* display.c */
 
 void display_stars_line(int chars);
 void display_matches_line(int *map, int chars, int i, int j);
 void display_map(int *map, int lines, int chars);
+
+/* player.c */
+
+int check_line(int status, int line, int lines);
+int check_matches(int status, int *map, int line, int matches, int max_matches);
+void finished_turn(int line, int matches);
+void player_turn(int *map, int lines, int chars, int max_matches);
 
 #endif
