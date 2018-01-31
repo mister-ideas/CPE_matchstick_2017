@@ -35,9 +35,9 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 			if (line > 0 && line <= lines)
 				status = 1;
 			else
-				my_putstr("Error: this line is out of range\n");
+				my_putstr(OUT_OF_RANGE);
 		} else
-			my_putstr("Error: invalid input (positive number expected)\n");
+			my_putstr(INVALID_INPUT);
 	}
 	while (status == 1) {
 		nb = read_input("Matches: ");
@@ -48,13 +48,13 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 				my_put_nbr(max_matches);
 				my_putstr(" matches per turn\n");
 			} else if (matches > map[line])
-				my_putstr("Error: not enough matches on this line\n");
+				my_putstr(TOO_HIGH);
 			else if (matches == 0)
-				my_putstr("Error: you have to remove at least one match\n");
+				my_putstr(AT_LEAST_ONE);
 			else
 				status = 2;
 		} else
-			my_putstr("Error: invalid input (positive number expected)\n");
+			my_putstr(INVALID_INPUT);
 	}
 	map[line] -= matches;
 	my_putstr("Player removed ");

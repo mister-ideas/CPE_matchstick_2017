@@ -13,6 +13,11 @@
 #include <stdio.h>
 #include "my.h"
 
+#define INVALID_INPUT "Error: invalid input (positive number expected)\n"
+#define OUT_OF_RANGE "Error: this line is out of range\n"
+#define AT_LEAST_ONE "Error: you have to remove at least one match\n"
+#define TOO_HIGH "Error: not enough matches on this line\n"
+
 /* matchstick.c */
 
 /* display.c */
