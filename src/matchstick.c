@@ -20,7 +20,7 @@ int read_input(char *input)
 	return (my_getnbr(temp));
 }
 
-void player_turn(int lines, int max_matches)
+void player_turn(int lines, int chars, int max_matches)
 {
 	int line;
 	int matches;
@@ -53,6 +53,12 @@ void player_turn(int lines, int max_matches)
 		} else
 			my_putstr("Error: invalid input (positive number expected)\n");
 	}
+	my_putstr("Player removed ");
+	my_put_nbr(matches);
+	my_putstr(" match(es) from line ");
+	my_put_nbr(line);
+	my_putchar('\n');
+	display_map(lines, chars, line, matches);
 }
 
 int main(int ac, char **av)
@@ -72,7 +78,7 @@ int main(int ac, char **av)
 	chars = lines * 2 + 1;
 	if (max_matches < 1 || max_matches > chars - 2)
 		return (84);
-	display_map(lines, chars);
-	player_turn(lines, max_matches);
+	display_map(lines, chars, 0, 0);
+	player_turn(lines, chars, max_matches);
 	return (0);
 }

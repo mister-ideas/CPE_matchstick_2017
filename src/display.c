@@ -31,7 +31,7 @@ void display_matches_line(int *map, int chars, int i, int j)
 	my_putchar('\n');
 }
 
-void display_map(int lines, int chars)
+void display_map(int lines, int chars, int line, int matches)
 {
 	int map[lines];
 	int j = 0;
@@ -43,6 +43,7 @@ void display_map(int lines, int chars)
 		else
 			map[i] = 2 * i - 1;
 	}
+	map[line] -= matches;
 	for (int i = 0; i < lines; i++) {
 		if (map[i] == -1)
 			display_stars_line(chars);

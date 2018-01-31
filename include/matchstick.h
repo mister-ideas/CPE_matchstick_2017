@@ -19,6 +19,6 @@
 
 void display_stars_line(int chars);
 void display_matches_line(int *map, int chars, int i, int j);
-void display_map(int lines, int chars);
+void display_map(int lines, int chars, int line, int matches);
 
 #endif
