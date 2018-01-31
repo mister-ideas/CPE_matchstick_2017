@@ -7,11 +7,12 @@
 
 SRC_DIR=	src
 
-SRC=		$(SRC_DIR)/matchstick.c
+SRC=		$(SRC_DIR)/matchstick.c	\
+		$(SRC_DIR)/display.c
 
 OBJ=		$(SRC:.c=.o)
 
-CFLAGS= 	-W -Wall -fno-builtin -g3
+CFLAGS= 	-W -Wall -fno-builtin
 
 CPPFLAGS =	-I include
 

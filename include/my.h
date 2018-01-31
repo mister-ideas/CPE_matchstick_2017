@@ -16,6 +16,5 @@ int my_put_nbr(int nb);
 int my_getnbr(char const *str);
 
 char *my_strcat(char *dest, char const *src);
-char *get_next_line(int fd);
 
 #endif
