@@ -11,7 +11,8 @@ SRC=		my_putchar.c		\
 		my_strlen.c		\
 		my_strcat.c		\
 		my_getnbr.c		\
-		my_str_isnum.c
+		my_str_isnum.c		\
+		get_next_line.c
 
 OBJ=		$(SRC:.c=.o)
 
