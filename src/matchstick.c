@@ -30,7 +30,7 @@ int game_loop(char **av)
 	lines = my_getnbr(av[1]);
 	if (lines < 1 || lines > 99)
 		return (1);
-	map = malloc(sizeof(int) * lines);
+	map = malloc(sizeof(int) * (lines + 2));
 	max_matches = my_getnbr(av[2]);
 	chars = lines * 2 + 1;
 	if (max_matches < 1 || max_matches > chars - 2)
