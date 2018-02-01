@@ -45,7 +45,7 @@ int game_loop(int *map, int lines, int chars, int max_matches)
 {
 	display_map(map, lines, chars);
 	while (1) {
-		if (player_turn(map, lines, chars, max_matches) == 0)
+		if (player_turn(map, lines, chars, max_matches) == 1)
 			return (0);
 		if (check_end(1, map, lines) == 2) {
 			free(map);
