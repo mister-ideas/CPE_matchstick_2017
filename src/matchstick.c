@@ -13,7 +13,7 @@ int read_input(char *input)
 
 	my_putstr(input);
 	temp = get_next_line(0);
-	if (!temp[0])
+	if (temp == NULL)
 		return (-2);
 	if (my_str_isnum(temp) == 0)
 		return (-1);
