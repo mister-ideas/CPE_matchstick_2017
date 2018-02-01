@@ -39,7 +39,8 @@ char *get_next_line(int fd)
 		my_strcat(got, buff);
 		for (int i = 0; buff[i]; i++) {
 			if (buff[i] == '\n') {
-				line = malloc(sizeof(char) * my_strlen(got) + 1);
+				line = malloc(sizeof(char) *
+				my_strlen(got) + 1);
 				if (!line)
 					return (NULL);
 				for (int i = 0; got[i] != '\n'; i++)
