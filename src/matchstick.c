@@ -16,7 +16,10 @@ int read_input(char *input)
 	i = read(0, temp, 4096);
 	if (i == 0)
 		return (0);
-	temp[i] = '\0';
+	if (temp[i - 1] == '\n')
+		temp[i - 1] = '\0';
+	else
+		temp[i] = '\0';
 	if (my_str_isnum(temp) == 0)
 		return (-1);
 	return (my_getnbr(temp));
