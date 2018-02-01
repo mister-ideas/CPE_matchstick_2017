@@ -31,9 +31,9 @@ int check_matches(int *map, int line, int matches, int max_matches)
 			my_put_nbr(max_matches);
 			my_putstr(" matches per turn\n");
 		}
-		if (matches > map[line])
+		else if (matches > map[line])
 			my_putstr(TOO_HIGH);
-		else if (matches == 0)
+		if (matches == 0)
 			my_putstr(AT_LEAST_ONE);
 		else
 			status = 2;
