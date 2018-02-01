@@ -30,13 +30,16 @@ int check_matches(int *map, int line, int matches, int max_matches)
 			my_putstr("Error: you cannot remove more than ");
 			my_put_nbr(max_matches);
 			my_putstr(" matches per turn\n");
-		}
-		else if (matches > map[line])
+			return (0);
+		} else if (matches > map[line]) {
 			my_putstr(TOO_HIGH);
-		if (matches == 0)
+			return (0);
+		}
+		if (matches == 0) {
 			my_putstr(AT_LEAST_ONE);
-		else
-			status = 2;
+			return (0);
+		}
+		status = 2;
 	} else
 		my_putstr(INVALID_INPUT);
 	return (status);
@@ -62,9 +65,13 @@ int player_turn(int *map, int lines, int chars, int max_matches)
 	while (status != 2) {
 		nb = read_input("Line: ");
 		line = nb;
+		if (!nb)
+			return (1);
 		status = check_line(line, lines);
 		if (status == 1) {
 			nb = read_input("Matches: ");
+			if (!nb)
+				return (1);
 			matches = nb;
 			status = check_matches(map, line, matches, max_matches);
 		}
