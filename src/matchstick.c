@@ -15,7 +15,7 @@ int read_input(char *input)
 	my_putstr(input);
 	i = read(0, temp, 4096);
 	if (i == 0)
-		return (0);
+		return (-2);
 	if (temp[i - 1] == '\n')
 		temp[i - 1] = '\0';
 	else

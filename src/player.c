@@ -56,21 +56,21 @@ void finished_player_turn(int line, int matches)
 
 int player_turn(int *map, int lines, int chars, int max_matches)
 {
-	int line;
-	int matches;
+	int line = 0;
+	int matches = 0;
 	int status = 0;
 	int nb;
 
 	my_putstr("\nYour turn:\n");
 	while (status != 2) {
 		nb = read_input("Line: ");
-		line = nb;
-		if (!nb)
+		if (nb == -2)
 			return (1);
+		line = nb;
 		status = check_line(line, lines);
 		if (status == 1) {
 			nb = read_input("Matches: ");
-			if (!nb)
+			if (nb == -2)
 				return (1);
 			matches = nb;
 			status = check_matches(map, line, matches, max_matches);
