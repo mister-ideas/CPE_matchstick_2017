@@ -70,7 +70,7 @@ int game_init(char **av)
 	map = malloc(sizeof(int) * (lines + 2));
 	max_matches = my_getnbr(av[2]);
 	chars = lines * 2 + 1;
-	if (max_matches < 1 || max_matches > chars - 2)
+	if (max_matches < 1)
 		return (-1);
 	lines += 2;
 	for (int i = 0; i < lines; i++) {

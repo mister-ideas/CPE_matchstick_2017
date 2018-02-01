@@ -24,6 +24,8 @@ void ia_turn(int *map, int lines, int chars, int max_matches)
 
 	my_putstr("\nAI's turn...\n");
 	while (error == 1) {
+		if (line > lines - 2)
+			line = lines - 1;
 		if (matches > map[line]) {
 			line = (random() % lines) + 1;
 			matches = (random() % max_matches) + 1;

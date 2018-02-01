@@ -14,7 +14,7 @@ SRC=		$(SRC_DIR)/matchstick.c	\
 
 OBJ=		$(SRC:.c=.o)
 
-CFLAGS= 	-W -Wall -fno-builtin
+CFLAGS= 	-W -Wall -fno-builtin -g3
 
 CPPFLAGS =	-I include
 
