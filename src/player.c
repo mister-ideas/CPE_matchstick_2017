@@ -7,8 +7,10 @@
 
 #include "matchstick.h"
 
-int check_line(int status, int line, int lines)
+int check_line(int line, int lines)
 {
+	int status = 0;
+
 	if (line != -1) {
 		if (line > 0 && line <= lines)
 			status = 1;
@@ -19,9 +21,10 @@ int check_line(int status, int line, int lines)
 	return (status);
 }
 
-int check_matches(int status, int *map, int line, int matches, int max_matches)
+int check_matches(int *map, int line, int matches, int max_matches)
 {
-	status = 0;
+	int status = 0;
+
 	if (matches != -1) {
 		if (matches > max_matches) {
 			my_putstr("Error: you cannot remove more than ");
@@ -57,17 +60,12 @@ int player_turn(int *map, int lines, int chars, int max_matches)
 	my_putstr("\nYour turn:\n");
 	while (status != 2) {
 		nb = read_input("Line: ");
-		if (nb == 0)
-			return (1);
 		line = nb;
-		status = check_line(status, line, lines);
+		status = check_line(line, lines);
 		if (status == 1) {
 			nb = read_input("Matches: ");
-			if (nb == 0)
-				return (1);
 			matches = nb;
-			status = check_matches(status, map, line,
-			matches, max_matches);
+			status = check_matches(map, line, matches, max_matches);
 		}
 	}
 	map[line] -= matches;

@@ -41,8 +41,8 @@ void display_map(int *map, int lines, int chars);
 
 /* player.c */
 
-int check_line(int status, int line, int lines);
-int check_matches(int status, int *map, int line, int matches, int max_matches);
+int check_line(int line, int lines);
+int check_matches(int *map, int line, int matches, int max_matches);
 void finished_player_turn(int line, int matches);
 int player_turn(int *map, int lines, int chars, int max_matches);
 
