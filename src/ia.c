@@ -18,15 +18,15 @@ void finished_ia_turn(int line, int matches)
 
 void ia_turn(int *map, int lines, int chars, int max_matches)
 {
-	int line = (rand() % lines) + 1;
-	int matches = (rand() % max_matches) + 1;
+	int line = (random() % lines) + 1;
+	int matches = (random() % max_matches) + 1;
 	int error = 1;
 
 	my_putstr("\nAI's turn...\n");
 	while (error == 1) {
 		if (matches > map[line]) {
-			line = (rand() % lines) + 1;
-			matches = (rand() % max_matches) + 1;
+			line = (random() % lines) + 1;
+			matches = (random() % max_matches) + 1;
 		} else
 			error = 0;
 	}

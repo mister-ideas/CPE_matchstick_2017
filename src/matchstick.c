@@ -29,10 +29,10 @@ int check_end(int player, int *map, int lines)
 	if (total == 0) {
 		switch (player) {
 		case 2:
-			my_putstr("I lost... snif... but I'll get you next time!!\n");
+			my_putstr(IA_LOST);
 			return (1);
 		case 1:
-			my_putstr("You lost, too bad...\n");
+			my_putstr(PLAYER_LOST);
 			return (2);
 		}
 	}

@@ -18,6 +18,8 @@
 #define OUT_OF_RANGE "Error: this line is out of range\n"
 #define AT_LEAST_ONE "Error: you have to remove at least one match\n"
 #define TOO_HIGH "Error: not enough matches on this line\n"
+#define IA_LOST "I lost... snif... but I'll get you next time!!\n"
+#define PLAYER_LOST "You lost, too bad...\n"
 
 /* matchstick.c */
 
