@@ -44,11 +44,15 @@ int game_loop(int *map, int lines, int chars, int max_matches)
 	display_map(map, lines, chars);
 	while (1) {
 		player_turn(map, lines, chars, max_matches);
-		if (check_end(1, map, lines) == 2)
+		if (check_end(1, map, lines) == 2) {
+			free(map);
 			return (2);
+		}
 		ia_turn(map, lines, chars, max_matches);
-		if (check_end(2, map, lines) == 1)
+		if (check_end(2, map, lines) == 1) {
+			free(map);
 			return (1);
+		}
 	}
 	return (0);
 }
@@ -75,14 +79,10 @@ int game_init(char **av)
 		else
 			map[i] = 2 * i - 1;
 	}
-	if (game_loop(map, lines, chars, max_matches) == 1) {
-		free(map);
+	if (game_loop(map, lines, chars, max_matches) == 1)
 		return (1);
-	}
-	else {
-		free(map);
+	else
 		return (2);
-	}
 	return (0);
 }
 
