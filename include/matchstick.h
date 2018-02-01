@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 #include "my.h"
 
 #define INVALID_INPUT "Error: invalid input (positive number expected)\n"
@@ -21,7 +22,8 @@
 /* matchstick.c */
 
 int read_input(char *input);
-int game_loop(char **av);
+int game_init(char **av);
+int game_loop(int *map, int lines, int chars, int max_matches);
 
 /* display.c */
 
@@ -35,5 +37,10 @@ int check_line(int status, int line, int lines);
 int check_matches(int status, int *map, int line, int matches, int max_matches);
 void finished_player_turn(int line, int matches);
 void player_turn(int *map, int lines, int chars, int max_matches);
+
+/* ia.c */
+
+void finished_ia_turn(int line, int matches);
+void ia_turn(int *map, int lines, int chars, int max_matches);
 
 #endif
