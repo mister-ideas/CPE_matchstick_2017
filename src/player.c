@@ -47,7 +47,7 @@ void finished_player_turn(int line, int matches)
 	my_putchar('\n');
 }
 
-void player_turn(int *map, int lines, int chars, int max_matches)
+int player_turn(int *map, int lines, int chars, int max_matches)
 {
 	int line;
 	int matches;
@@ -57,10 +57,14 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 	my_putstr("\nYour turn:\n");
 	while (status != 2) {
 		nb = read_input("Line: ");
+		if (!nb)
+			return (1);
 		line = nb;
 		status = check_line(status, line, lines);
 		if (status == 1) {
 			nb = read_input("Matches: ");
+			if (!nb)
+				return (1);
 			matches = nb;
 			status = check_matches(status, map, line,
 			matches, max_matches);
@@ -69,4 +73,5 @@ void player_turn(int *map, int lines, int chars, int max_matches)
 	map[line] -= matches;
 	finished_player_turn(line, matches);
 	display_map(map, lines, chars);
+	return (0);
 }

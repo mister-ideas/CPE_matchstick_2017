@@ -23,6 +23,7 @@ int game_init(char **av)
 	int lines;
 	int max_matches;
 	int chars;
+	int return_val;
 
 	lines = my_getnbr(av[1]);
 	if (lines < 1 || lines > 99)
@@ -34,9 +35,14 @@ int game_init(char **av)
 		return (-1);
 	lines += 2;
 	map_init(map, lines);
-	if (game_loop(map, lines, chars, max_matches) == 1)
+	return_val = game_loop(map, lines, chars, max_matches);
+	switch (return_val) {
+	case 1:
 		return (1);
-	else
+	case 2:
 		return (2);
-	return (0);
+	case 0:
+		return (0);
+	}
+	return (3);
 }
