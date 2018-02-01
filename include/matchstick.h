@@ -14,6 +14,7 @@
 #include <time.h>
 #include "my.h"
 
+#define USAGE "Usage: ./matchstick <lines> <matches>\n"
 #define INVALID_INPUT "Error: invalid input (positive number expected)\n"
 #define OUT_OF_RANGE "Error: this line is out of range\n"
 #define AT_LEAST_ONE "Error: you have to remove at least one match\n"
@@ -24,8 +25,13 @@
 /* matchstick.c */
 
 int read_input(char *input);
-int game_init(char **av);
+int check_end(int player, int *map, int lines);
 int game_loop(int *map, int lines, int chars, int max_matches);
+
+/* init.c */
+
+void map_init(int *map, int lines);
+int game_init(char **av);
 
 /* display.c */
 

@@ -8,13 +8,14 @@
 SRC_DIR=	src
 
 SRC=		$(SRC_DIR)/matchstick.c	\
+		$(SRC_DIR)/init.c	\
 		$(SRC_DIR)/display.c	\
 		$(SRC_DIR)/player.c	\
 		$(SRC_DIR)/ia.c
 
 OBJ=		$(SRC:.c=.o)
 
-CFLAGS= 	-W -Wall -fno-builtin -g3
+CFLAGS= 	-W -Wall -fno-builtin
 
 CPPFLAGS =	-I include
 
